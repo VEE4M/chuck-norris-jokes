@@ -63,7 +63,6 @@ function App() {
       const fetchData = async () => {
         try {
           let response = await axios.get('https://api.chucknorris.io/jokes/random')
-          // handle success///
           if (Object.values(storage).includes(response.data.value)) {
             fetchData()
           } else {
@@ -85,14 +84,12 @@ function App() {
     }
   }, [isTimeToUpdate]);
 
-
-
-
   const clearStorage = () => {
     storage.clear()
     setJokes(Object.values(storage))
     setIsEmptyStorage(true)
   }
+
   return (
     (<div>
       <Timer setIsTimeToUpdate={setIsTimeToUpdate} />
